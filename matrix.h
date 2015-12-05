@@ -1,23 +1,13 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
+#include "tools.h"
+
 typedef struct matrix{
 	double *nums;	//numbers in matrix
 	int row;		//row
 	int col;		//column
 } Mat;
-
-void f_input(double *num, char *str){
-	printf("%s", str);
-	scanf("%10lf", num);
-	printf("\n");
-}
-
-void i_input(int *num, char *str){
-	printf("%s", str);
-	scanf("%d", num);
-	printf("\n");
-}
 
 double* loader(Mat *mat, int x, int y){		//return address at specified coordinates in the matrix.
 	double *addr;
@@ -66,20 +56,6 @@ Mat *multiply(Mat *mat1, Mat *mat2){
 		}
 	}
 	return ans;
-}
-
-void indicate(Mat *mat){
-	int i, j;
-	double *point;
-
-	printf("****MATRIX****\n");
-	for(i = 0; i < (mat->col); ++i){
-		for(j = 0; j < (mat->row); ++j){
-			point = loader(mat, j, i);
-			printf("%12f   ", *point);
-		}
-		printf("\n");
-	}
 }
 
 #endif
